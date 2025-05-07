@@ -20,38 +20,40 @@
         }
     }
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>CHURRASCO PHP - Convidados</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-    <h1>Adicionar Convidados</h1>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>CHURRASCO PHP - Convidados</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
 
-    <form method="post" class="form-inline-column">
-        <input type="text" name="nome" placeholder="Nome do convidado" autofocus required>
-        <label>Quantidade de Dependentes:</label>
-        <input type="number" name="dep" value="0" min="0">
-        <input type="submit" name="add_conv" value="Adicionar Convidado">
-    </form>
+        <body>
+            <div class="container">
+                <h1> Adicionar Convidados </h1>
 
-    <ul>
-        <?php foreach ($_SESSION['convidados'] as $convidado): ?>
-            <li><?= htmlspecialchars($convidado) ?></li>
-        <?php endforeach; ?>
-    </ul>
+                <form method="post" class="form-inline-column">
+                    <input type="text" name="nome" placeholder="Nome do convidado" autofocus required>
+                    <label>Quantidade de Dependentes:</label>
+                    <input type="number" name="dep" value="0" min="0">
+                    <input type="submit" name="add_conv" value="Adicionar Convidado">
+                </form>
 
-    <div class="btn-group">
-        <form method="post">
-            <input type="submit" name="finalizar" value="Finalizar e Processar">
-        </form>
-        <form method="post">
-            <input type="submit" name="voltar" value="Voltar para Itens">
-        </form>
-    </div>
-</div>
-</body>
-</html>
+                <ul>
+                    <?php foreach ($_SESSION['convidados'] as $convidado): ?>
+                        <li><?= htmlspecialchars($convidado) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+
+                <div class="btn-group">
+                    <form method="post">
+                        <input type="submit" name="finalizar" value="Finalizar e Processar">
+                    </form>
+                    <form method="post">
+                        <input type="submit" name="voltar" value="Voltar para Itens">
+                    </form>
+                </div>
+            </div>
+        </body>
+    </html>
