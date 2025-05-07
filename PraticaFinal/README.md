@@ -1,3 +1,2 @@
-### Prática Final
+### Planejador de Churrasco
 
-#### Churrasco
