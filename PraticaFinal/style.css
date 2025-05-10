@@ -1,5 +1,3 @@
-/* Preciso ajustar responsividade, layout e cores */
-
 body {
     font-family: Arial, sans-serif;
     background: #f2f2f2;
@@ -10,14 +8,27 @@ body {
 .container {
     max-width: 600px;
     margin: auto;
-    background: white;
+    /* background: white; */
+    background: #f2f2f2;
     padding: 30px;
     border-radius: 10px;
     margin-top: 40px;
+   /*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+} 
+
+.itens-home, .adicionando-itens{
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
-h1, h2 {
-    color: #b22222;
+
+h1 {
+    color: #00215e;
     text-align: center;
 }
 
@@ -41,27 +52,40 @@ input[type="text"], input[type="number"] {
     flex: 1;
     padding: 8px;
     font-size: 1em;
+    /* teste */ width: 100%;
 }
 
 input[type="submit"] {
     padding: 8px 12px;
     font-size: 1em;
-    background: #b22222;
+    background: #201e1e;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    background-color: #00215e; transition: background-color 0.3s;
 }
 
 input[type="submit"]:hover {
-    background: #8b0000;
+    background: #03389b;
 }
+
+input[name="limpar"] {
+    background: #b22222;
+}
+
+input[name="limpar"]:hover {
+    background: #e42929;
+}
+
+
 
 ul {
     list-style: square;
     padding: 10px 20px;
     background: #f9f9f9;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .flex-row {
@@ -73,7 +97,7 @@ ul {
 
 .btn-group {
     display: flex;
-    flex-direction: column;
+/*     flex-direction: column; */
     gap: 10px;
 }
 
@@ -83,6 +107,7 @@ ul {
     align-items: center;
     justify-content: center;
     text-align: left;
+    margin-bottom: 15px;
 }
 
 .item img {
@@ -91,3 +116,4 @@ ul {
     margin-right: 15px;
     border-radius: 8px;
 }
+

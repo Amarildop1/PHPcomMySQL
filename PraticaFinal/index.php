@@ -38,37 +38,48 @@
 
         <body>
             <div class="container">
-                <h1>Adicionar Itens para o Churrasco</h1>
+                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                    <h1> Churrasco PHP </h1>
+                    <h3> Adicionando Itens </h3>
 
-                <form method="post" class="form-inline">
-                    <input type="text" name="item" placeholder="Nome do item" autofocus required>
-                    <select name="tipo" required>
-                        <option value="solido">Sólido</option>
-                        <option value="liquido">Líquido</option>
-                    </select>
+                    <form method="post" class="form-inline">
+                        <input type="text" name="item" placeholder="Nome do item" autofocus required>
+                        <select name="tipo" required>
+                            <option value="" disabled selected>Selecione o tipo</option>
+                            <option value="solido">Sólido</option>
+                            <option value="liquido">Líquido</option>
+                        </select>
 
-                    <input type="submit" name="add_item" value="Adicionar Item">
-                </form>
+                        <input type="submit" name="add_item" value="Adicionar Item">
+                    </form> 
+                </div>
+
 
                 <?php if (!empty($_SESSION['itens'])): ?>
-                    <div class="flex-row">
 
-                        <ul>
-                            <?php foreach ($_SESSION['itens'] as $item): ?>
-                                <li><?= htmlspecialchars($item['nome']) ?> (<?= $item['tipo'] ?>)</li>
-                            <?php endforeach; ?>
-                        </ul>
+                    <div class="itens-home itens-adicionados" style="margin-top:20px;">
+                        <h2> Itens </h2>
+                        <div class="flex-row">
 
-                        <div class="btn-group">
-                            <form method="post">
-                                <input type="submit" name="limpar" value="Limpar Tudo">
-                            </form>
+                            <ul>
+                                <?php foreach ($_SESSION['itens'] as $item): ?>
+                                    <li><?= htmlspecialchars($item['nome']) ?> (<?= $item['tipo'] ?>)</li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                            <form method="post">
-                                <input type="submit" name="proximo" value="Ir para Convidados">
-                            </form>
-                        </div>
+                            <div class="btn-group">
+                                <form method="post">
+                                    <input type="submit" name="limpar" value="Limpar Tudo">
+                                </form>
+
+                                <form method="post">
+                                    <input type="submit" name="proximo" value="Ir para Convidados">
+                                </form>
+                            </div> 
+
+                        </div><!-- Final .flex-row -->
                     </div>
+
                 <?php endif; ?>
             </div>
         </body>
