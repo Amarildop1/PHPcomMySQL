@@ -1,15 +1,25 @@
 <?php
     session_start();
-    if (!isset($_SESSION['itens'])) $_SESSION['itens'] = [];
+    if (!isset($_SESSION['itens'])) {
+        $_SESSION['itens'] = [];
+    }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['add_item']) && !empty(trim($_POST['item']))) {
-            $_SESSION['itens'][] = trim($_POST['item']);
+
+            $item = trim($_POST['item']);
+            $tipo = $_POST['tipo'];
+
+            if ($item && ($tipo === 'solido' || $tipo === 'liquido')) {
+                $_SESSION['itens'][] = ['nome' => $item, 'tipo' => $tipo];
+            }
         }
+
 
         if (isset($_POST['limpar'])) {
             $_SESSION['itens'] = [];
         }
+
 
         if (isset($_POST['proximo'])) {
             header("Location: convidados.php");
@@ -29,16 +39,23 @@
         <body>
             <div class="container">
                 <h1>Adicionar Itens para o Churrasco</h1>
+
                 <form method="post" class="form-inline">
                     <input type="text" name="item" placeholder="Nome do item" autofocus required>
+                    <select name="tipo" required>
+                        <option value="solido">Sólido</option>
+                        <option value="liquido">Líquido</option>
+                    </select>
+
                     <input type="submit" name="add_item" value="Adicionar Item">
                 </form>
 
                 <?php if (!empty($_SESSION['itens'])): ?>
                     <div class="flex-row">
+
                         <ul>
                             <?php foreach ($_SESSION['itens'] as $item): ?>
-                                <li><?= htmlspecialchars($item) ?></li>
+                                <li><?= htmlspecialchars($item['nome']) ?> (<?= $item['tipo'] ?>)</li>
                             <?php endforeach; ?>
                         </ul>
 

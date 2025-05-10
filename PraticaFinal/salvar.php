@@ -9,7 +9,9 @@
     mysqli_query($conn, "DELETE FROM convidados");
 
     foreach ($itens as $item) {
-        mysqli_query($conn, "INSERT INTO lista_itens (nome) VALUES ('" . mysqli_real_escape_string($conn, $item) . "')");
+        $nome = mysqli_real_escape_string($conn, $item['nome']);
+        $tipo = mysqli_real_escape_string($conn, $item['tipo']);
+        mysqli_query($conn, "INSERT INTO lista_itens (nome, tipo) VALUES ('$nome', '$tipo')");
     }
 
     foreach ($convidados as $linha) {

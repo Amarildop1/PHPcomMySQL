@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS convidados (
     dependentes INT
 );
 
+ALTER TABLE lista_itens ADD COLUMN tipo ENUM('solido', 'liquido') DEFAULT 'solido';
+
 
 /*
 

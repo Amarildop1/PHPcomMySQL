@@ -11,23 +11,23 @@
         $total_pessoas += 1 + $c['dependentes'];
     }
 
-    $resItens = mysqli_query($conn, "SELECT * FROM lista_itens");
+    $solidos = [];
+    $liquidos = [];
 
-    $itens = [];
+    $resItens = mysqli_query($conn, "SELECT nome, tipo FROM lista_itens");
+
     while ($i = mysqli_fetch_assoc($resItens)) {
-        $itens[] = $i['nome'];
+        if ($i['tipo'] === 'liquido') {
+            $liquidos[] = $i['nome'];
+        } else {
+            $solidos[] = $i['nome'];
+        }
     }
 
-    // divide: metade sólidos, metade líquidos | por estética visual no resultado
-    $qtde_itens = count($itens);
-    $meio = ceil($qtde_itens / 2);
-    /* Preciso melhorar a lógica pra separar aqui | ta no "chute" irreal */
-    $sólidos = array_slice($itens, 0, $meio);
-    $líquidos = array_slice($itens, $meio);
 
     function imagemItem($item) {
         $img = 'imagens/' . strtolower(str_replace(' ', '_', $item)) . '.png';
-        return file_exists($img) ? $img : 'imagens/bisteca.png';
+        return file_exists($img) ? $img : 'imagens/churrasco.png';
     }
 ?>
 
@@ -46,18 +46,18 @@
                 <p>Consumo estimado por pessoa: <strong><?= $consumo_solido ?> kg sólidos</strong> e <strong><?= $consumo_liquido ?> L líquidos</strong></p>
 
                 <h2>Sólidos</h2>
-                <?php foreach ($sólidos as $item): ?>
+                <?php foreach ($solidos as $item): ?>
                     <div class="item">
                         <img src="<?= imagemItem($item) ?>" alt="<?= $item ?>">
-                        <span><?= $item ?> - <?= number_format(($consumo_solido * $total_pessoas) / count($sólidos), 2) ?> kg</span>
+                        <span><?= $item ?> - <?= number_format(($consumo_solido * $total_pessoas) / count($solidos), 2) ?> kg</span>
                     </div>
                 <?php endforeach; ?>
 
                 <h2>Líquidos</h2>
-                <?php foreach ($líquidos as $item): ?>
+                <?php foreach ($liquidos as $item): ?>
                     <div class="item">
                         <img src="<?= imagemItem($item) ?>" alt="<?= $item ?>">
-                        <span><?= $item ?> - <?= number_format(($consumo_liquido * $total_pessoas) / count($líquidos), 2) ?> L</span>
+                        <span><?= $item ?> - <?= number_format(($consumo_liquido * $total_pessoas) / count($liquidos), 2) ?> L</span>
                     </div>
             
                 <?php endforeach; ?>
