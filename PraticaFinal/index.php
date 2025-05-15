@@ -77,10 +77,10 @@
                                 </form>
                             </div> 
 
-                        </div><!-- Final .flex-row -->
+                        </div> <!-- Final .flex-row -->
                     </div>
 
                 <?php endif; ?>
-            </div>
+            </div> <!-- Final .container -->
         </body>
     </html>

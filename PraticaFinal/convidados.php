@@ -33,27 +33,50 @@
             <div class="container">
                 <h1> Adicionar Convidados </h1>
 
-                <form method="post" class="form-inline-column">
-                    <input type="text" name="nome" placeholder="Nome do convidado" autofocus required>
-                    <label>Quantidade de Dependentes:</label>
-                    <input type="number" name="dep" value="0" min="0">
-                    <input type="submit" name="add_conv" value="Adicionar Convidado">
-                </form>
+                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
 
-                <ul>
-                    <?php foreach ($_SESSION['convidados'] as $convidado): ?>
-                        <li><?= htmlspecialchars($convidado) ?></li>
-                    <?php endforeach; ?>
-                </ul>
+                    <form method="post" class="form-inline-column">
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
 
-                <div class="btn-group">
-                    <form method="post">
-                        <input type="submit" name="finalizar" value="Finalizar e Processar">
+                            <input type="text" name="nome" placeholder="Nome do convidado" autofocus required style="flex: 1;">
+
+                            <div>
+                                <label for="dep">Quantidade de Dependentes:</label>
+                                <input type="number" name="dep" value="0" min="0" style="width: 38px;">
+                            </div>
+                        </div>
+
+                        <div style="text-align: right;">
+                            <input type="submit" name="add_conv" value="Adicionar Convidado">
+                        </div>
+
                     </form>
-                    <form method="post">
-                        <input type="submit" name="voltar" value="Voltar para Itens">
-                    </form>
+
                 </div>
-            </div>
+
+                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+
+                    <h2> Convidados </h2>
+                    <div class="flex-row">
+
+                        <ul>
+                            <?php foreach ($_SESSION['convidados'] as $convidado): ?>
+                                <li><?= htmlspecialchars($convidado) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+
+                        <div class="btn-group">
+                            <form method="post">
+                                <input type="submit" name="finalizar" value="Finalizar e Processar">
+                            </form>
+                            <form method="post">
+                                <input type="submit" name="voltar" value="Voltar para Itens">
+                            </form>
+                        </div>
+                    </div> <!-- Final .flex-row -->
+                </div>
+
+            </div> <!-- Final .container -->
         </body>
     </html>

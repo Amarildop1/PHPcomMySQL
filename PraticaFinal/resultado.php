@@ -29,7 +29,22 @@
         $img = 'imagens/' . strtolower(str_replace(' ', '_', $item)) . '.png';
         return file_exists($img) ? $img : 'imagens/churrasco.png';
     }
+
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        if (isset($_POST['voltarParaItens'])) {
+            header("Location: index.php");
+            exit;
+        }
+
+        if (isset($_POST['voltarParaConvidados'])) {
+            header("Location: convidados.php");
+            exit;
+        }
+    }
 ?>
+
 
 <!DOCTYPE html>
     <html lang="pt-br">
@@ -42,25 +57,52 @@
         <body>
             <div class="container">
                 <h1>Resumo do Churrasco</h1>
-                <p>Total de pessoas: <strong><?= $total_pessoas ?></strong></p>
-                <p>Consumo estimado por pessoa: <strong><?= $consumo_solido ?> kg sólidos</strong> e <strong><?= $consumo_liquido ?> L líquidos</strong></p>
 
-                <h2>Sólidos</h2>
-                <?php foreach ($solidos as $item): ?>
-                    <div class="item">
-                        <img src="<?= imagemItem($item) ?>" alt="<?= $item ?>">
-                        <span><?= $item ?> - <?= number_format(($consumo_solido * $total_pessoas) / count($solidos), 2) ?> kg</span>
-                    </div>
-                <?php endforeach; ?>
+                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                    <p>Total de pessoas: <strong><?= $total_pessoas ?></strong></p>
+                    <p>Consumo estimado por pessoa: <strong><?= $consumo_solido ?> kg de sólidos</strong> e <strong><?= $consumo_liquido ?> L de líquidos</strong></p>
 
-                <h2>Líquidos</h2>
-                <?php foreach ($liquidos as $item): ?>
-                    <div class="item">
-                        <img src="<?= imagemItem($item) ?>" alt="<?= $item ?>">
-                        <span><?= $item ?> - <?= number_format(($consumo_liquido * $total_pessoas) / count($liquidos), 2) ?> L</span>
+                    <div class="flex-lado-a-lado">
+                        <div class="coluna">
+
+                            <h2>Sólidos</h2>
+                            <?php foreach ($solidos as $item): ?>
+                                <div class="item">
+                                    <img src="<?= imagemItem($item) ?>" alt="<?= $item ?>">
+                                    <span><?= $item ?> - <?= number_format(($consumo_solido * $total_pessoas) / count($solidos), 2) ?> kg</span>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <div class="coluna">
+                            <h2>Líquidos</h2>
+
+                            <?php foreach ($liquidos as $item): ?>
+                                <div class="item">
+                                    <img src="<?= imagemItem($item) ?>" alt="<?= $item ?>">
+                                    <span><?= $item ?> - <?= number_format(($consumo_liquido * $total_pessoas) / count($liquidos), 2) ?> L</span>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-            
-                <?php endforeach; ?>
-            </div>
+                </div>
+
+
+                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+
+                        <div class="btn-group">
+                            <form method="post">
+                                <input type="submit" name="voltarParaItens" value="Voltar para Itens">
+                            </form>
+
+                            <form method="post">
+                                <input type="submit" name="voltarParaConvidados" value="Voltar para Convidados">
+                            </form>
+                        </div>
+
+                </div>
+
+
+            </div> <!-- Final .container -->
         </body>
     </html>

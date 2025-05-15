@@ -101,19 +101,43 @@ ul {
     gap: 10px;
 }
 
-.item {
+/* .item {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: left;
     margin-bottom: 15px;
-}
+} */
 
-.item img {
+/* .item img {
     width: 80px;
     height: 80px;
     margin-right: 15px;
     border-radius: 8px;
+} */
+
+
+.flex-lado-a-lado {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* quebrar em mobile */
 }
 
+.coluna {
+    width: 48%;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
