@@ -28,6 +28,7 @@
     }
 ?>
 
+
 <!DOCTYPE html>
     <html lang="pt-br">
         <head>
@@ -81,6 +82,7 @@
                     </div>
 
                 <?php endif; ?>
+
             </div> <!-- Final .container -->
         </body>
     </html>

@@ -50,7 +50,7 @@
     <html lang="pt-br">
         <head>
             <meta charset="UTF-8">
-            <title>Resultado do Churrasco</title>
+            <title>CHURRASCO PHP - Resumo</title>
             <link rel="stylesheet" href="style.css">
         </head>
 
@@ -89,7 +89,6 @@
 
 
                 <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
-
                         <div class="btn-group">
                             <form method="post">
                                 <input type="submit" name="voltarParaItens" value="Voltar para Itens">
@@ -99,10 +98,12 @@
                                 <input type="submit" name="voltarParaConvidados" value="Voltar para Convidados">
                             </form>
                         </div>
-
                 </div>
 
-
             </div> <!-- Final .container -->
+
+            <footer>
+                <p> &copy; 2025 - Amarildo </p>
+            </footer>
         </body>
     </html>

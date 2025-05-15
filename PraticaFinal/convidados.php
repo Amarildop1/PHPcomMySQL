@@ -18,8 +18,13 @@
             header("Location: index.php");
             exit;
         }
+
+        if (isset($_POST['limpar'])) {
+            $_SESSION['convidados'] = [];
+        }
     }
 ?>
+
 
 <!DOCTYPE html>
     <html lang="pt-br">
@@ -36,7 +41,7 @@
                 <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
 
                     <form method="post" class="form-inline-column">
-                        
+
                         <div style="display: flex; gap: 10px; margin-bottom: 10px;">
 
                             <input type="text" name="nome" placeholder="Nome do convidado" autofocus required style="flex: 1;">
@@ -66,17 +71,23 @@
                             <?php endforeach; ?>
                         </ul>
 
-                        <div class="btn-group">
-                            <form method="post">
-                                <input type="submit" name="finalizar" value="Finalizar e Processar">
-                            </form>
+                        <div class="btn-group" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
                             <form method="post">
                                 <input type="submit" name="voltar" value="Voltar para Itens">
                             </form>
+
+                            <form method="post">
+                                <input type="submit" name="finalizar" value="Finalizar e Processar">
+                            </form>
+
+                            <form method="post">
+                                <input type="submit" name="limpar" value="Limpar Tudo" title="Limpar lista de convidados">
+                            </form>
+
                         </div>
                     </div> <!-- Final .flex-row -->
                 </div>
 
             </div> <!-- Final .container -->
-        </body>
+        </body>  
     </html>
