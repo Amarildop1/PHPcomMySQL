@@ -36,9 +36,9 @@
 
         <body>
             <div class="container">
-                <h1> Adicionar Convidados </h1>
 
                 <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                    <h1> Adicionar Convidados </h1>
 
                     <form method="post" class="form-inline-column">
 

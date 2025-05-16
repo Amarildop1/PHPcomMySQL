@@ -89,7 +89,7 @@
 
 
                 <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
-                        <div class="btn-group">
+                        <div class="btn-group flex-lado-a-lado">
                             <form method="post">
                                 <input type="submit" name="voltarParaItens" value="Voltar para Itens">
                             </form>
