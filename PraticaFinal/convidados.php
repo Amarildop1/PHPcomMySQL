@@ -37,12 +37,12 @@
         <body>
             <div class="container">
 
-                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                <div class="containers-internos">
                     <h1> Adicionar Convidados </h1>
 
                     <form method="post" class="form-inline-column">
 
-                        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                        <div class="flex-lado-a-lado">
 
                             <input type="text" name="nome" placeholder="Nome do convidado" autofocus required style="flex: 1;">
 
@@ -60,7 +60,7 @@
 
                 </div>
 
-                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                <div class="containers-internos">
 
                     <h2> Convidados + dependentes </h2>
                     <div class="flex-row">
@@ -71,7 +71,7 @@
                             <?php endforeach; ?>
                         </ul>
 
-                        <div class="btn-group" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
+                        <div class="btn-group">
                             <form method="post">
                                 <input type="submit" name="voltarParaItens" value="Voltar para Itens">
                             </form>

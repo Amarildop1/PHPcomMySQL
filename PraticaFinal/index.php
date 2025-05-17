@@ -39,7 +39,7 @@
 
         <body>
             <div class="container">
-                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                <div class="containers-internos">
                     <h1> Churrasco PHP </h1>
                     <h3> Adicionando Itens </h3>
 
@@ -58,17 +58,18 @@
 
                 <?php if (!empty($_SESSION['itens'])): ?>
 
-                    <div class="itens-home itens-adicionados" style="margin-top:20px;">
+                    <div class="containers-internos">
                         <h2> Itens </h2>
                         <div class="flex-row">
 
                             <ul>
                                 <?php foreach ($_SESSION['itens'] as $item): ?>
-                                    <li><?= htmlspecialchars($item['nome']) ?> (<?= $item['tipo'] ?>)</li>
+                                    <li><?= htmlspecialchars($item['nome']) ?> &nbsp;&nbsp; (<?= $item['tipo'] ?>)</li>
                                 <?php endforeach; ?>
                             </ul>
 
-                            <div class="btn-group">
+                            <div class="btn-group2">
+
                                 <form method="post">
                                     <input type="submit" name="limpar" value="Limpar Tudo">
                                 </form>

@@ -56,7 +56,7 @@
 
         <body>
             <div class="container">
-                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                <div class="containers-internos">
                     <h1>Resumo do Churrasco</h1>
 
                     <p>Total de pessoas: <strong><?= $total_pessoas ?></strong></p>
@@ -87,9 +87,8 @@
                     </div>
                 </div>
 
-
-                <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
-                        <div class="btn-group flex-lado-a-lado">
+                <div class="containers-internos">
+                        <div class="flex-lado-a-lado">
                             <form method="post">
                                 <input type="submit" name="voltarParaItens" value="Voltar para Itens">
                             </form>
