@@ -56,9 +56,9 @@
 
         <body>
             <div class="container">
-                <h1>Resumo do Churrasco</h1>
-
                 <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
+                    <h1>Resumo do Churrasco</h1>
+
                     <p>Total de pessoas: <strong><?= $total_pessoas ?></strong></p>
                     <p>Consumo estimado por pessoa: <strong><?= $consumo_solido ?> kg de sólidos</strong> e <strong><?= $consumo_liquido ?> L de líquidos</strong></p>
 

@@ -6,7 +6,7 @@
         if (isset($_POST['add_conv']) && !empty(trim($_POST['nome']))) {
             $nome = trim($_POST['nome']);
             $dep = isset($_POST['dep']) ? (int)$_POST['dep'] : 0;
-            $_SESSION['convidados'][] = "$nome,$dep";
+            $_SESSION['convidados'][] = "$nome, $dep";
         }
 
         if (isset($_POST['finalizar'])) {
@@ -14,7 +14,7 @@
             exit;
         }
 
-        if (isset($_POST['voltar'])) {
+        if (isset($_POST['voltarParaItens'])) {
             header("Location: index.php");
             exit;
         }
@@ -62,7 +62,7 @@
 
                 <div class="itens-home adicionando-itens" style="margin-bottom:20px;">
 
-                    <h2> Convidados </h2>
+                    <h2> Convidados + dependentes </h2>
                     <div class="flex-row">
 
                         <ul>
@@ -73,7 +73,7 @@
 
                         <div class="btn-group" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
                             <form method="post">
-                                <input type="submit" name="voltar" value="Voltar para Itens">
+                                <input type="submit" name="voltarParaItens" value="Voltar para Itens">
                             </form>
 
                             <form method="post">
